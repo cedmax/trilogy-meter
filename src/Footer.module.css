@@ -1,0 +1,9 @@
+.footer {
+    text-align: center;
+    font-size: 80%;
+    margin-bottom: 50px
+}
+
+.footer a {
+    color: gray
+}

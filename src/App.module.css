@@ -1,0 +1,7 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 95%;
+    flex-wrap: wrap
+}

@@ -1,0 +1,36 @@
+.header {
+    text-align: center;    
+    width: 95%;
+    margin: 20px auto 40px;
+}
+
+.header h1 {
+    background: black;
+    color: white;
+    padding: 10px;
+    margin: 0 0 5px;
+}
+
+.header small {
+    text-align: right;
+    display: block
+}
+
+.nav {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.nav small {text-align: left}
+
+.nav a {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.nav a.selected {
+    text-decoration: none;
+    cursor: default;
+    font-weight: bold
+}

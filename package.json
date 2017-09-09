@@ -1,0 +1,20 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "blankshield": "^0.6.1",
+    "custom-react-scripts": "0.2.0",
+    "locale2": "^2.1.4",
+    "react": "^15.6.1",
+    "react-bar-chart": "^0.1.2",
+    "react-dom": "^15.6.1",
+    "recharts": "^1.0.0-alpha.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

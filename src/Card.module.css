@@ -1,0 +1,25 @@
+.card {
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    flex: 0 0 98%;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-bottom: 15px;
+}
+
+@media (min-width: 650px) {
+    .card {
+        flex-basis: 44%
+    }
+}
+
+@media (min-width: 900px) {
+    .card {
+        flex-basis: 31%
+    }
+}
+
+.card h1 {
+    padding: 5px 0 0 20px;
+    font-size: 20px
+}
