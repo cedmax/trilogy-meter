@@ -2,6 +2,13 @@
     display: flex;
     justify-content: space-between;
     margin: auto;
-    max-width: 95%;
+    width: 95%;
+    max-width: 1280px;
     flex-wrap: wrap
+}
+
+@media (max-width: 650px) {
+    .container {
+        justify-content: space-around
+    }
 }

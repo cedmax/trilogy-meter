@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
-import cssStyles from './Graph.module.css'
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 import slugify from 'slugify'
 
 const formatImage = (string) => slugify(string.toLowerCase(), {remove: /[$*_+~.()'"!/\-:@]/g})
