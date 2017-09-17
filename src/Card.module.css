@@ -5,6 +5,16 @@
     overflow: hidden;
     box-sizing: border-box;
     padding-bottom: 15px;
+    position: relative
+}
+
+.card a {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 80%;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 @media (min-width: 650px) {

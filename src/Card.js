@@ -4,6 +4,22 @@ import Graph from './Graph'
 import blankshield from 'blankshield'
 
 class Card extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      visible: 3
+    }
+
+    this.view = this.view.bind(this)
+  }
+
+  view (num) {
+    this.setState({
+      visible: num || this.props.serie.movies.length
+    })
+  }
+
   handleClick (movie) {
     const {
       affiliate
@@ -16,13 +32,26 @@ class Card extends Component {
   render () {
     const {
       serie,
-      visible
+      label,
+      trilogy
     } = this.props
+
+    let toggleView
+    if (serie.movies.length > 3 && trilogy) {
+      if (this.state.visible > 3) {
+        toggleView = <a onClick={() => this.view(3)}>show three</a>
+      } else {
+        toggleView = <a onClick={() => this.view()}>show all</a>
+      }
+    }
+
+    const visible = trilogy ? this.state.visible : serie.movies.length
 
     return (
       <div className={cssStyles.card}>
         <h1>{serie.title}</h1>
-        <Graph visible={visible} onClick={this.handleClick.bind(this)} movies={serie.movies} />
+        <Graph label={label} onClick={this.handleClick.bind(this)} movies={serie.movies.slice(0, visible)} />
+        {toggleView}
       </div>
     )
   }

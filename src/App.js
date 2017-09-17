@@ -21,13 +21,15 @@ class App extends Component {
     super(props)
     this.sortBy = this.sortBy.bind(this)
     this.show = this.show.bind(this)
+    this.toggleTrilogies = this.toggleTrilogies.bind(this)
 
     const {
       series
     } = props
 
     this.state = {
-      series
+      series,
+      trilogies: true
     }
   }
 
@@ -47,6 +49,12 @@ class App extends Component {
     })
   }
 
+  toggleTrilogies () {
+    this.setState({
+      trilogies: !this.state.trilogies
+    })
+  }
+
   render () {
     const {
       series
@@ -54,9 +62,9 @@ class App extends Component {
 
     return (
       <div>
-        <Header show={this.show} visible={this.state.show} sorted={this.state.sorted} sort={this.sortBy} />
+        <Header trilogies={this.state.trilogies} toggleTrilogies={this.toggleTrilogies} show={this.show} visible={this.state.show} sorted={this.state.sorted} sort={this.sortBy} />
         <main className={cssStyles.container}>
-          {series.map((serie) => <Card visible={this.state.show} affiliate={this.props.affiliate} key={serie.title} serie={serie} />)}
+          {series.map((serie) => <Card trilogy={this.state.trilogies} label={this.state.show} affiliate={this.props.affiliate} key={serie.title} serie={serie} />)}
         </main>
         <Footer affiliate={this.props.affiliate} />
       </div>

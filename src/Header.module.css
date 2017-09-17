@@ -12,9 +12,14 @@
     margin: 0 0 5px;
 }
 
-.header small {
+.header small, .line {
     text-align: right;
-    display: block
+    display: block;
+}
+
+.distribute {
+    display: flex;
+    justify-content: space-between
 }
 
 .nav {
