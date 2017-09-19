@@ -6,7 +6,7 @@ import Footer from './Footer'
 
 const sorter = {
   rating: (serie) => {
-    return serie.sort((a, b) => b.average - a.average)
+    return serie.sort((a, b) => b.trilogyAverage - a.trilogyAverage)
   },
   year: (serie) => {
     return serie.sort((a, b) => a.movies[0].year - b.movies[0].year)

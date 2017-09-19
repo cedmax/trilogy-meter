@@ -2,34 +2,46 @@
     border: 1px solid #ccc;
     margin-bottom: 30px;
     flex: 0 0 95%;
-    overflow: hidden;
     box-sizing: border-box;
     padding-bottom: 15px;
     position: relative
 }
 
+.card a, .card small {
+    color: #666; 
+    font-size: 12px;
+    font-weight: normal
+}    
+
 .card a {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 80%;
     cursor: pointer;
     text-decoration: underline;
 }
 
 @media (min-width: 650px) {
     .card {
-        flex-basis: 48%
+        flex-basis: 48%;
     }
 }
 
 @media (min-width: 1000px) {
     .card {
-        flex-basis: 31%
+        flex-basis: 31%;
     }
 }
 
-.card h1 {
-    padding: 5px 0 0 20px;
-    font-size: 20px
+.card header, .card footer {
+    padding: 15px 40px 7px;
 }
+
+.card footer {
+    display: flex;
+    justify-content: space-between
+}
+
+.card h1 {
+    margin-top: 0;
+    font-size: 24px;
+    line-height: 1.5;
+}
+

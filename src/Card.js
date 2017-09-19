@@ -49,9 +49,14 @@ class Card extends Component {
 
     return (
       <div className={cssStyles.card}>
-        <h1>{serie.title}</h1>
+        <header>
+          <h1>{serie.title}</h1>
+        </header>
         <Graph label={label} onClick={this.handleClick.bind(this)} movies={serie.movies.slice(0, visible)} />
-        {toggleView}
+        <footer>
+          <small>avg. { visible > 3 ? serie.average : serie.trilogyAverage}</small>
+          {toggleView}
+        </footer>
       </div>
     )
   }
