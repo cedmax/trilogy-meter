@@ -44,8 +44,17 @@ class Card extends Component {
         toggleView = <a onClick={() => this.view()}>show all</a>
       }
     }
-
+    
     const visible = trilogy ? this.state.visible : serie.movies.length
+    
+    let average = serie.trilogyAverage
+    if (visible > 3) {
+      average = (
+        <span>
+          <s>{serie.trilogyAverage}</s> {serie.average}
+        </span>
+      );
+    }
 
     return (
       <div className={cssStyles.card}>
@@ -54,7 +63,7 @@ class Card extends Component {
         </header>
         <Graph label={label} onClick={this.handleClick.bind(this)} movies={serie.movies.slice(0, visible)} />
         <footer>
-          <small>avg. { visible > 3 ? serie.average : serie.trilogyAverage}</small>
+          <small>avg. {average}</small>
           {toggleView}
         </footer>
       </div>
