@@ -4,6 +4,21 @@ import cssStyles from './App.module.css'
 import Header from './Header'
 import Footer from './Footer'
 
+const debounce = function(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this, args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};
+
 const sorter = {
   rating: (serie) => {
     return serie.sort((a, b) => b.trilogyAverage - a.trilogyAverage)
@@ -19,18 +34,32 @@ const sorter = {
 class App extends Component {
   constructor (props) {
     super(props)
-    this.sortBy = this.sortBy.bind(this)
-    this.show = this.show.bind(this)
-    this.toggleTrilogies = this.toggleTrilogies.bind(this)
+    this.actions = {
+      sortBy: this.sortBy.bind(this),
+      toggleTrilogies: this.toggleTrilogies.bind(this),
+      filter: this.filter.bind(this),
+      show: this.show.bind(this)
+    }
+
+    this.debouncedSetState = debounce(this.setState, 50)
 
     const {
       series
     } = props
 
+    this.series = series;
     this.state = {
       series,
       trilogies: true
     }
+  }
+
+  filter (search) {
+    this.debouncedSetState({
+      series: search ? this.series.filter((serie) => {
+        return serie.title.toLowerCase().indexOf(search.toLowerCase()) > -1;
+      }) : this.series
+    })
   }
 
   sortBy (sorted) {
@@ -43,9 +72,9 @@ class App extends Component {
     })
   }
 
-  show (show) {
+  show (visible) {
     this.setState({
-      show
+      visible
     })
   }
 
@@ -62,9 +91,9 @@ class App extends Component {
 
     return (
       <div>
-        <Header trilogies={this.state.trilogies} toggleTrilogies={this.toggleTrilogies} show={this.show} visible={this.state.show} sorted={this.state.sorted} sort={this.sortBy} />
+        <Header {...this.state} {...this.actions} />
         <main className={cssStyles.container}>
-          {series.map((serie) => <Card trilogy={this.state.trilogies} label={this.state.show} affiliate={this.props.affiliate} key={serie.title} serie={serie} />)}
+          {series.map((serie) => <Card trilogy={this.state.trilogies} label={this.state.visible} affiliate={this.props.affiliate} key={serie.title} serie={serie} />)}
         </main>
         <Footer affiliate={this.props.affiliate} />
       </div>

@@ -1,0 +1,26 @@
+.search {
+  font-weight: bold;
+  text-align: right;
+  margin-top: 5px;
+  display: block;
+}
+
+.search small {
+  display:inline;
+}
+
+.search input {
+  display:inline-block;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  padding: 3px;
+  border: solid 2px #c9c9c9;
+  -webkit-transition: border 0.3s;
+  -moz-transition: border 0.3s;
+  -o-transition: border 0.3s;
+  transition: border 0.3s;
+}

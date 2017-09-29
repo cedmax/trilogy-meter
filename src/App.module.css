@@ -7,6 +7,11 @@
     flex-wrap: wrap
 }
 
+.container::after {
+    content: '';
+    flex: 0 0 31%;
+}
+
 @media (max-width: 650px) {
     .container {
         justify-content: space-around
