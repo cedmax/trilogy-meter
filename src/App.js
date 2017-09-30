@@ -63,7 +63,7 @@ class App extends Component {
   }
 
   sortBy (sorted) {
-    const serie = this.props.series.slice(0)
+    const serie = this.state.series.slice(0)
     const sortedSerie = sorter[sorted] ? sorter[sorted](serie) : serie
 
     this.setState({
