@@ -4,20 +4,21 @@ import cssStyles from './App.module.css'
 import Header from './Header'
 import Footer from './Footer'
 
-const debounce = function(func, wait, immediate) {
-  var timeout;
-  return function() {
-    var context = this, args = arguments;
-    var later = function() {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-    var callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
-};
+const debounce = (func, wait, immediate) => {
+  let timeout
+  return () => {
+    const context = this
+    const args = arguments
+    var later = () => {
+      timeout = null
+      if (!immediate) func.apply(context, args)
+    }
+    var callNow = immediate && !timeout
+    clearTimeout(timeout)
+    timeout = setTimeout(later, wait)
+    if (callNow) func.apply(context, args)
+  }
+}
 
 const sorter = {
   rating: (serie) => {
@@ -28,6 +29,13 @@ const sorter = {
   },
   year_desc: (serie) => {
     return serie.sort((a, b) => b.movies[0].year - a.movies[0].year)
+  },
+  az: (serie) => {
+    return serie.sort((a, b) => {
+      if (a.title < b.title) return -1
+      if (a.title > b.title) return 1
+      return 0
+    })
   }
 }
 
@@ -47,7 +55,7 @@ class App extends Component {
       series
     } = props
 
-    this.series = series;
+    this.series = series
     this.state = {
       series,
       trilogies: true
@@ -63,7 +71,7 @@ class App extends Component {
   }
 
   sortBy (sorted) {
-    const serie = this.state.series.slice(0)
+    const serie = this.series.slice(0)
     const sortedSerie = sorter[sorted] ? sorter[sorted](serie) : serie
 
     this.setState({
