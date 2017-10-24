@@ -4,19 +4,15 @@ import cssStyles from './App.module.css'
 import Header from './Header'
 import Footer from './Footer'
 
-const debounce = (func, wait, immediate) => {
-  let timeout
-  return () => {
+function debounce(fn, delay) {
+  var timer = null
+  return function () {
     const context = this
     const args = arguments
-    var later = () => {
-      timeout = null
-      if (!immediate) func.apply(context, args)
-    }
-    var callNow = immediate && !timeout
-    clearTimeout(timeout)
-    timeout = setTimeout(later, wait)
-    if (callNow) func.apply(context, args)
+    clearTimeout(timer)
+    timer = setTimeout(function () {
+      fn.apply(context, args)
+    }, delay)
   }
 }
 
@@ -65,7 +61,7 @@ class App extends Component {
   filter (search) {
     this.debouncedSetState({
       series: search ? this.series.filter((serie) => {
-        return serie.title.toLowerCase().indexOf(search.toLowerCase()) > -1;
+        return serie.title.toLowerCase().indexOf(search.toLowerCase()) > -1
       }) : this.series
     })
   }
