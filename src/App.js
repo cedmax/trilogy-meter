@@ -99,7 +99,7 @@ class App extends Component {
         <main className={cssStyles.container}>
           {series.map((serie) => <Card trilogy={this.state.trilogies} label={this.state.visible} affiliate={this.props.affiliate} key={serie.title} serie={serie} />)}
         </main>
-        <Footer affiliate={this.props.affiliate} />
+        <Footer updatedAt={this.props.updatedAt} affiliate={this.props.affiliate} />
       </div>
     )
   }

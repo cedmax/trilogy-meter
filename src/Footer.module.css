@@ -1,7 +1,8 @@
 .footer {
     text-align: center;
     font-size: 80%;
-    margin-bottom: 50px
+    margin-bottom: 50px;
+    line-height: 1.2
 }
 
 .footer a {
