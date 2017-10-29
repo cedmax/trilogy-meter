@@ -9,12 +9,11 @@
     "react": "^16.0.0",
     "react-bar-chart": "^0.1.2",
     "react-dom": "^16.0.0",
-    "react-snap": "^0.6.2",
     "recharts": "^1.0.0-beta.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && react-snap",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
