@@ -44,26 +44,49 @@ class Card extends Component {
         toggleView = <a onClick={() => this.view()}>show all</a>
       }
     }
-    
+
     const visible = trilogy ? this.state.visible : serie.movies.length
-    
+
     let average = serie.trilogyAverage
     if (visible > 3) {
       average = (
         <span>
           <s>{serie.trilogyAverage}</s> {serie.average}
         </span>
-      );
+      )
+    }
+
+    let range = serie.trilogyRange
+    if (visible > 3) {
+      range = (
+        <span>
+          <s>{serie.trilogyRange}</s> {serie.range}
+        </span>
+      )
+    }
+
+    const startYear = serie.movies[0].year
+    let endYear = serie.movies[2].year
+    if (visible > 3) {
+      endYear = (
+        <span>
+          <s>{endYear}</s> {serie.movies[serie.movies.length - 1].year}
+        </span>
+      )
     }
 
     return (
       <div className={cssStyles.card}>
         <header>
           <h1>{serie.title}</h1>
+          <small>{startYear} - {endYear}</small>
         </header>
         <Graph label={label} onClick={this.handleClick.bind(this)} movies={serie.movies.slice(0, visible)} />
         <footer>
-          <small>avg. {average}</small>
+          <small>
+            <abbr title="Averange rating">Avg.</abbr> {average}<br />
+            <abbr title="Range, difference between the highest and the lowest rating">Rng.</abbr> {range}
+          </small>
           {toggleView}
         </footer>
       </div>

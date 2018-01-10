@@ -34,6 +34,15 @@
     padding: 15px 40px 7px;
 }
 
+.card header h1 {
+    margin-bottom: 0;
+}
+
+.card header small {
+    margin-bottom: .7em;
+    display: block;
+}
+
 .card footer {
     display: flex;
     justify-content: space-between
