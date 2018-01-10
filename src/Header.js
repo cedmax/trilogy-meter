@@ -22,10 +22,10 @@ export default class Graph extends Component {
           <small className={cssStyles.line}>
             Sort by:
             <Spacer/><a className={!sorted ? cssStyles.selected : ''} onClick={() => sortBy()}>default</a>
-            <Spacer/><a className={sorted === 'az' ? cssStyles.selected : ''} onClick={() => sortBy('az')}>a-z</a>            
-            <Spacer/><a className={sorted === 'rating' ? cssStyles.selected : ''} onClick={() => sortBy('rating')}>avg. rating</a>
-            <Spacer/><a className={sorted === 'year' ? cssStyles.selected : ''} onClick={() => sortBy('year')}>least recent</a>
-            <Spacer/><a className={sorted === 'year_desc' ? cssStyles.selected : ''} onClick={() => sortBy('year_desc')}>most recent</a>
+            <Spacer/><a className={sorted === 'az' ? cssStyles.selected : ''} onClick={() => sortBy('az')}>a-z</a>
+            <Spacer/><a className={sorted === 'rating' ? cssStyles.selected : ''} onClick={() => sortBy('rating')}>rating</a>
+            <Spacer/><a className={sorted === 'year' ? cssStyles.selected : ''} onClick={() => sortBy('year')}>newest</a>
+            <Spacer/><a className={sorted === 'range' ? cssStyles.selected : ''} onClick={() => sortBy('range')}>consistency</a>
           </small>
           <div className={`${cssStyles.line} ${cssStyles.distribute}`}>
             <small>
@@ -40,7 +40,7 @@ export default class Graph extends Component {
             </small>
           </div>
         </nav>
-        <small>* some series might not be trilogies, no matter what who grew in the 80s thinks</small>
+        <small>* some series might not be trilogies, despite what who grew in the 80s thinks</small>
         <Search filter={filter} />
       </header>
     )

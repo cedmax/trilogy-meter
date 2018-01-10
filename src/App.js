@@ -4,7 +4,7 @@ import cssStyles from './App.module.css'
 import Header from './Header'
 import Footer from './Footer'
 
-function debounce(fn, delay) {
+function debounce (fn, delay) {
   var timer = null
   return function () {
     const context = this
@@ -16,15 +16,33 @@ function debounce(fn, delay) {
   }
 }
 
+const camelCasify = (prefix, method) => {
+  return prefix
+    ? prefix + method.charAt(0).toUpperCase() + method.slice(1) 
+    : method
+}
+
 const sorter = {
-  rating: (serie) => {
-    return serie.sort((a, b) => b.trilogyAverage - a.trilogyAverage)
+  rating: (serie, trilogies) => {
+    const average = camelCasify(trilogies ? 'trilogy' : '', 'average')
+    const rating = camelCasify(trilogies ? 'trilogy' : '', 'rating')
+    return serie.sort((a, b) => (
+      b[average] !== a[average]
+        ? b[average] - a[average]
+        : a[rating] - b[rating]
+    ))
   },
   year: (serie) => {
-    return serie.sort((a, b) => a.movies[0].year - b.movies[0].year)
-  },
-  year_desc: (serie) => {
     return serie.sort((a, b) => b.movies[0].year - a.movies[0].year)
+  },
+  range: (serie, trilogies) => {
+    const average = camelCasify(trilogies ? 'trilogy' : '', 'average')
+    const rating = camelCasify(trilogies ? 'trilogy' : '', 'rating')
+    return serie.sort((a, b) => (
+      b[rating] !== a[rating]
+        ? a[rating] - b[rating]
+        : b[average] - a[average]
+    ))
   },
   az: (serie) => {
     return serie.sort((a, b) => {
@@ -66,13 +84,17 @@ class App extends Component {
     })
   }
 
-  sortBy (sorted) {
+  sortBy (sorted, showTrilogies) {
+    if (typeof showTrilogies === 'undefined') {
+      showTrilogies = this.state.trilogies
+    }
     const serie = this.series.slice(0)
-    const sortedSerie = sorter[sorted] ? sorter[sorted](serie) : serie
+    const sortedSerie = sorter[sorted] ? sorter[sorted](serie, showTrilogies) : serie
 
     this.setState({
       series: sortedSerie,
-      sorted
+      sorted,
+      trilogies: showTrilogies
     })
   }
 
@@ -83,9 +105,7 @@ class App extends Component {
   }
 
   toggleTrilogies () {
-    this.setState({
-      trilogies: !this.state.trilogies
-    })
+    this.sortBy(this.state.sorted, !this.state.trilogies)
   }
 
   render () {
