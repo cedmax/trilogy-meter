@@ -18,18 +18,18 @@ function debounce (fn, delay) {
 
 const camelCasify = (prefix, method) => {
   return prefix
-    ? prefix + method.charAt(0).toUpperCase() + method.slice(1) 
+    ? prefix + method.charAt(0).toUpperCase() + method.slice(1)
     : method
 }
 
 const sorter = {
   rating: (serie, trilogies) => {
     const average = camelCasify(trilogies ? 'trilogy' : '', 'average')
-    const rating = camelCasify(trilogies ? 'trilogy' : '', 'rating')
+    const range = camelCasify(trilogies ? 'trilogy' : '', 'range')
     return serie.sort((a, b) => (
       b[average] !== a[average]
         ? b[average] - a[average]
-        : a[rating] - b[rating]
+        : a[range] - b[range]
     ))
   },
   year: (serie) => {
@@ -37,10 +37,10 @@ const sorter = {
   },
   range: (serie, trilogies) => {
     const average = camelCasify(trilogies ? 'trilogy' : '', 'average')
-    const rating = camelCasify(trilogies ? 'trilogy' : '', 'rating')
+    const range = camelCasify(trilogies ? 'trilogy' : '', 'range')
     return serie.sort((a, b) => (
-      b[rating] !== a[rating]
-        ? a[rating] - b[rating]
+      b[range] !== a[range]
+        ? a[range] - b[range]
         : b[average] - a[average]
     ))
   },
