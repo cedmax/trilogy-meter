@@ -1,7 +1,7 @@
 .card {
     border: 1px solid #ccc;
     margin-bottom: 30px;
-    flex: 0 0 95%;
+    flex: 0 0 100%;
     box-sizing: border-box;
     padding-bottom: 15px;
     position: relative

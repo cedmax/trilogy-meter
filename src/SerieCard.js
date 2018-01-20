@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import cssStyles from './Card.module.css'
 import Graph from './Graph'
 import blankshield from 'blankshield'
+import cssStyles from './SerieCard.module.css'
 
-class Card extends Component {
+export default class SerieCard extends Component {
   constructor (props) {
     super(props)
 
@@ -93,5 +93,3 @@ class Card extends Component {
     )
   }
 }
-
-export default Card

@@ -1,9 +1,12 @@
 import React from 'react'
-import {render, hydrate} from 'react-dom'
-import './index.css'
 import App from './App'
-import affiliate from './affiliate'
+import {
+  render,
+  hydrate
+} from 'react-dom'
+import affiliate from './helpers/affiliate'
 import registerServiceWorker from './registerServiceWorker'
+import './index.css'
 
 const dataNode = document.getElementById('movies')
 const updatedAt = parseInt(dataNode.getAttribute('data-updated'), 10)
