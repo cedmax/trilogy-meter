@@ -114,7 +114,7 @@ class App extends Component {
     } = this.state
 
     return (
-      <div>
+      <div className={cssStyles.page}>
         <Header {...this.state} {...this.actions} />
         <main className={cssStyles.container}>
           {series.map((serie) => <Card trilogy={this.state.trilogies} label={this.state.visible} affiliate={this.props.affiliate} key={serie.title} serie={serie} />)}

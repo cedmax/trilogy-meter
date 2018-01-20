@@ -1,9 +1,14 @@
+.page {
+    padding: 20px 2.5%; 
+    max-width: 1280px;
+    margin: auto;
+}
+
 .container {
     display: flex;
     justify-content: space-between;
     margin: auto;
-    width: 95%;
-    max-width: 1280px;
+    padding: 0 auto 0;
     flex-wrap: wrap
 }
 

@@ -1,0 +1,28 @@
+.button {
+  position: relative;
+  vertical-align: top;
+  padding: 5px 8px 8px;
+  color:white;
+  text-align: center;
+  margin: 0 2px;
+  color: #454545;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #ecf0f1;
+  border: 0;
+  border: 1px solid #dadedf;
+  border-bottom-width: 2px;
+  cursor: pointer;
+  box-shadow: inset 0 -2px #dadedf, 0 1px 10px #dadedf;
+  border-radius: 3px;
+}
+.button:first-of-type {
+  margin-left: 0;
+}
+.button:active, .selected {
+  background:rgb(60, 141, 199);
+  color: white;
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

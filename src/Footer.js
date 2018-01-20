@@ -6,6 +6,10 @@ const formatReadable = (updatedAt) => updatedAt && (new Date(updatedAt)).toDateS
 
 export default ({ updatedAt, affiliate }) => (
   <footer className={cssStyles.footer}>
+    <p id="note">
+        * some series might not be trilogies anymore, despite what who grew in the 80s thinks
+    </p>
+
     <p>
       Made by <a rel="noopener noreferrer" target="_blank" href="https://cedmax.com">cedmax</a> in order to win an argument.<br />Ratings from IMDB, last fetched
       <time dateTime={formatIso(updatedAt)}> {formatReadable(updatedAt)}</time>.

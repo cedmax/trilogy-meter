@@ -1,8 +1,6 @@
 .header {
     text-align: center;    
-    width: 95%;
-    max-width: 1280px;
-    margin: 20px auto 40px;
+    margin: 0 auto 1.25em;
 }
 
 .header h1 {
@@ -12,35 +10,7 @@
     margin: 0 0 5px;
 }
 
-.header small, .line {
-    text-align: right;
-    display: block;
-}
-
-.distribute {
-    display: flex;
-    justify-content: space-between
-}
-
-.line {
-    margin-top: 5px;
-}
-
-.nav {
-    float: left;
-    margin-right: 15px;
-    margin-bottom: 10px;
-}
-
-.nav small {text-align: left}
-
-.nav a {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.nav a.selected {
+header h1 a, header h1 a:visited, header h1 a:hover, header h1 a:active {
+    color: white;
     text-decoration: none;
-    cursor: default;
-    font-weight: bold
 }
