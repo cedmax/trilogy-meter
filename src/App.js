@@ -6,10 +6,17 @@ import cssStyles from './App.module.css'
 import {
   debounce
 } from './helpers/utils'
+import queryString from 'query-string'
 import {
   filter as filterHelper,
   sorting as sortingHelper
 } from './helpers/settings'
+
+const {
+  location,
+  history
+} = window
+const readQs = () => queryString.parse(location.search)
 
 class App extends Component {
   constructor (props) {
@@ -17,17 +24,23 @@ class App extends Component {
     this.actions = {
       setSorting: this.setSorting.bind(this),
       setFilter: this.setFilter.bind(this),
-      toggleTrilogies: this.toggleTrilogies.bind(this)
+      setShow: this.setShow.bind(this)
     }
 
-    this.state = {
+    this.state = Object.assign({
       filter: '',
       sorting: '',
-      trilogies: true
-    }
+      show: ''
+    }, readQs())
 
     this.filteredSeries = this.filteredSeries.bind(this)
     this.debouncedSetState = debounce(this.setState, 50)
+
+    if (history.pushState) {
+      window.onpopstate = () => {
+        this.setState(readQs())
+      }
+    }
   }
 
   filteredSeries () {
@@ -38,32 +51,42 @@ class App extends Component {
     const {
       filter,
       sorting,
-      trilogies
+      show
     } = this.state
 
     const filteredSerie = filter ? filterHelper(series, filter) : series
     const sorter = sortingHelper[sorting]
     return (sorter)
-      ? sorter(filteredSerie, trilogies)
+      ? sorter(filteredSerie, !show)
       : filteredSerie
   }
 
-  toggleTrilogies () {
-    this.setState({
-      trilogies: !this.state.trilogies
-    })
+  buildUrl (newState) {
+    return `${location.origin}/?${queryString.stringify({
+      ...readQs(),
+      ...newState
+    })}`
+  }
+
+  setShow (show) {
+    const newState = { show }
+    if (history.pushState) history.pushState({}, '', this.buildUrl(newState))
+    this.setState(newState)
   }
 
   setSorting (sorting) {
-    this.setState({
-      sorting
-    })
+    const newState = { sorting }
+
+    if (history.pushState) history.pushState({}, '', this.buildUrl(newState))
+    this.setState(newState)
   }
 
   setFilter (filter) {
-    this.debouncedSetState({
-      filter
-    })
+    filter = filter || undefined
+    const newState = { filter }
+
+    if (history.pushState) history.pushState({}, '', this.buildUrl(newState))
+    this.debouncedSetState(newState)
   }
 
   render () {
@@ -75,7 +98,7 @@ class App extends Component {
         <main className={cssStyles.container}>
           {filteredSeries.map((serie) => (
             <SerieCard
-              trilogy={this.state.trilogies}
+              trilogy={!this.state.show}
               affiliate={this.props.affiliate}
               key={serie.title}
               serie={serie} />

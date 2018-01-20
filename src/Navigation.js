@@ -3,18 +3,19 @@ import Button from './Button'
 import cssStyles from './Navigation.module.css'
 
 export default ({
+  filter,
   setFilter,
   sorting,
   setSorting,
-  trilogies,
-  toggleTrilogies
+  show,
+  setShow
 }) => (
   <section className={cssStyles.nav}>
-    <div className={`${cssStyles.distribute}`}>
+    <div className={cssStyles.distribute}>
       <div className={cssStyles.line}>
         <h4>View</h4>
-        <Button selected={trilogies} onClick={() => toggleTrilogies()} text="trilogies" />
-        <Button selected={!trilogies} onClick={() => toggleTrilogies()} text="all" />
+        <Button selected={!show} onClick={() => setShow()} text="trilogies" />
+        <Button selected={show === 'all'} onClick={() => setShow('all')} text="all" />
       </div>
       <div className={cssStyles.line}>
         <h4>Sorting</h4>
@@ -27,7 +28,7 @@ export default ({
       <div className={cssStyles.line}>
         <label className={cssStyles.search}>
           <h4>Filter</h4>
-          <input onChange={(e) => setFilter(e.target.value)} />
+          <input value={filter || ''} onChange={(e) => setFilter(e.target.value)} />
         </label>
       </div>
     </div>
