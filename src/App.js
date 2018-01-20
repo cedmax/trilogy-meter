@@ -17,30 +17,35 @@ class App extends Component {
     this.actions = {
       setSorting: this.setSorting.bind(this),
       setFilter: this.setFilter.bind(this),
-      toggleTrilogies: this.toggleTrilogies.bind(this),
+      toggleTrilogies: this.toggleTrilogies.bind(this)
     }
 
     this.state = {
       filter: '',
       sorting: '',
-      trilogies: true,
+      trilogies: true
     }
 
-    this.applySettings = this.applySettings.bind(this)
+    this.filteredSeries = this.filteredSeries.bind(this)
     this.debouncedSetState = debounce(this.setState, 50)
   }
 
-  applySettings (series) {
+  filteredSeries () {
+    const {
+      series
+    } = this.props
+
     const {
       filter,
       sorting,
       trilogies
     } = this.state
 
-    series = filter ? filterHelper(series, this.state.filter) : series
-    series = sorting && sortingHelper[sorting] ? sortingHelper[sorting](series, trilogies) : series
-
-    return series
+    const filteredSerie = filter ? filterHelper(series, filter) : series
+    const sorter = sortingHelper[sorting]
+    return (sorter)
+      ? sorter(filteredSerie, trilogies)
+      : filteredSerie
   }
 
   toggleTrilogies () {
@@ -62,11 +67,7 @@ class App extends Component {
   }
 
   render () {
-    const {
-      series
-    } = this.props
-
-    const filteredSeries = this.applySettings(series)
+    const filteredSeries = this.filteredSeries()
 
     return (
       <div className={cssStyles.page}>
