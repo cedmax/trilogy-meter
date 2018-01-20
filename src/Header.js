@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Nav from './Navigation'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import cssStyles from './Header.module.css'
