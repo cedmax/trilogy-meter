@@ -12,6 +12,12 @@ import {
   sorting as sortingHelper
 } from './helpers/settings'
 
+const defaultState = {
+  filter: '',
+  sorting: '',
+  show: ''
+}
+
 const {
   location,
   history
@@ -27,18 +33,20 @@ class App extends Component {
       setShow: this.setShow.bind(this)
     }
 
-    this.state = Object.assign({
-      filter: '',
-      sorting: '',
-      show: ''
-    }, readQs())
+    this.state = {
+      ...defaultState,
+      ...readQs()
+    }
 
     this.filteredSeries = this.filteredSeries.bind(this)
     this.debouncedSetState = debounce(this.setState, 50)
 
     if (history.pushState) {
       window.onpopstate = () => {
-        this.setState(readQs())
+        this.setState({
+          ...defaultState,
+          ...readQs()
+        })
       }
     }
   }
@@ -62,10 +70,12 @@ class App extends Component {
   }
 
   buildUrl (newState) {
-    return `${location.origin}/?${queryString.stringify({
+    const qs = queryString.stringify({
       ...readQs(),
       ...newState
-    })}`
+    })
+
+    return `${location.origin}/${qs ? `?${qs}` : ''}`
   }
 
   setShow (show) {
