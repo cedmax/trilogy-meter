@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class DefaultTooltipContent extends Component {
   renderContent () {
-    const { payload, separator, itemStyle, itemSorter } = this.props
+    const { payload, itemStyle, itemSorter } = this.props
 
     const listStyle = { padding: 0, margin: 0 }
 
