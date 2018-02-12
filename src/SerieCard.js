@@ -33,7 +33,9 @@ export default class SerieCard extends Component {
     const {
       serie,
       label,
-      trilogy
+      trilogy,
+      source,
+      overlay
     } = this.props
 
     let toggleView
@@ -47,20 +49,20 @@ export default class SerieCard extends Component {
 
     const visible = trilogy ? this.state.visible : serie.movies.length
 
-    let average = serie.trilogyAverage
+    let average = serie.trilogyAverage[source]
     if (visible > 3) {
       average = (
         <span>
-          <s>{serie.trilogyAverage}</s> {serie.average}
+          <s>{serie.trilogyAverage[source]}</s> {serie.average[source]}
         </span>
       )
     }
 
-    let range = serie.trilogyRange
+    let range = serie.trilogyRange[source]
     if (visible > 3) {
       range = (
         <span>
-          <s>{serie.trilogyRange}</s> {serie.range}
+          <s>{serie.trilogyRange[source]}</s> {serie.range[source]}
         </span>
       )
     }
@@ -81,7 +83,7 @@ export default class SerieCard extends Component {
           <h1>{serie.title}</h1>
           <small>{startYear} - {endYear}</small>
         </header>
-        <Graph label={label} onClick={this.handleClick.bind(this)} movies={serie.movies.slice(0, visible)} />
+        <Graph overlay={overlay} source={source} label={label} onClick={this.handleClick.bind(this)} movies={serie.movies.slice(0, visible)} />
         <footer>
           <small>
             <abbr title="Averange rating">Avg.</abbr> {average}<br />

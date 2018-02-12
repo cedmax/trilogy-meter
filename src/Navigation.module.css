@@ -32,7 +32,6 @@
     }
 }
 
-
 .nav h4 {
     font-size: 80%;
     display: inline-block;    
@@ -67,3 +66,7 @@
     font-weight: bold
 }
 
+.nav label {
+    font-size: 12px;
+    margin-left: 10px;
+}

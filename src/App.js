@@ -12,10 +12,13 @@ import {
   sorting as sortingHelper
 } from './helpers/settings'
 
+const defaultSource = 'imdb'
 const defaultState = {
   filter: '',
   sorting: '',
-  show: ''
+  show: '',
+  source: '',
+  overlay: ''
 }
 
 const {
@@ -30,7 +33,9 @@ class App extends Component {
     this.actions = {
       setSorting: this.setSorting.bind(this),
       setFilter: this.setFilter.bind(this),
-      setShow: this.setShow.bind(this)
+      setShow: this.setShow.bind(this),
+      setSource: this.setSource.bind(this),
+      setOverlay: this.setOverlay.bind(this)
     }
 
     this.state = {
@@ -59,13 +64,14 @@ class App extends Component {
     const {
       filter,
       sorting,
-      show
+      show,
+      source
     } = this.state
 
     const filteredSerie = filter ? filterHelper(series, filter) : series
     const sorter = sortingHelper[sorting]
     return (sorter)
-      ? sorter(filteredSerie, !show)
+      ? sorter(filteredSerie, source || defaultSource, !show)
       : filteredSerie
   }
 
@@ -99,6 +105,22 @@ class App extends Component {
     this.debouncedSetState(newState)
   }
 
+  setSource (source) {
+    source = source || undefined
+    const newState = { source, overlay: undefined }
+
+    if (history.pushState) history.pushState({}, '', this.buildUrl(newState))
+    this.setState(newState)
+  }
+
+  setOverlay (overlay) {
+    overlay = overlay || undefined
+    const newState = { overlay }
+
+    if (history.pushState) history.pushState({}, '', this.buildUrl(newState))
+    this.setState(newState)
+  }
+
   render () {
     const filteredSeries = this.filteredSeries()
 
@@ -108,6 +130,8 @@ class App extends Component {
         <main className={cssStyles.container}>
           {filteredSeries.map((serie) => (
             <SerieCard
+              overlay={this.state.overlay}
+              source={this.state.source || defaultSource}
               trilogy={!this.state.show}
               affiliate={this.props.affiliate}
               key={serie.title}

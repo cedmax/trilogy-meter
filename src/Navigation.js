@@ -8,7 +8,11 @@ export default ({
   sorting,
   setSorting,
   show,
-  setShow
+  setShow,
+  source,
+  setSource,
+  overlay,
+  setOverlay
 }) => (
   <section className={cssStyles.nav}>
     <div className={cssStyles.distribute}>
@@ -24,6 +28,12 @@ export default ({
         <Button selected={sorting === 'rating'} onClick={() => setSorting('rating')} text="rating" />
         <Button selected={sorting === 'year'} onClick={() => setSorting('year')} text="newest" />
         <Button selected={sorting === 'range'} onClick={() => setSorting('range')} text="consistency" />
+      </div>
+      <div className={cssStyles.line}>
+        <h4>Source</h4>
+        <Button selected={!source} onClick={() => setSource()} text="imdb" />
+        <Button selected={source === 'tmdb'} onClick={() => setSource('tmdb')} text="tmdb" />
+        <label><input checked={!!overlay} type="checkbox" onChange={(e) => setOverlay(!!e.target.checked) && e.preventDefault()} /> overlay?</label>
       </div>
       <div className={cssStyles.line}>
         <label className={cssStyles.search}>

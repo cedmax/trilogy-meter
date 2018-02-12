@@ -13,24 +13,24 @@ export const sorting = {
     return 0
   }),
   year: (series) => [...series].sort((a, b) => b.movies[0].year - a.movies[0].year),
-  rating: (series, trilogies) => {
+  rating: (series, source, trilogies) => {
     const average = camelCasify(trilogies ? 'trilogy' : '', 'average')
     const range = camelCasify(trilogies ? 'trilogy' : '', 'range')
 
     return [...series].sort((a, b) => (
-      b[average] !== a[average]
-        ? b[average] - a[average]
-        : a[range] - b[range]
+      b[average][source] !== a[average][source]
+        ? b[average][source] - a[average][source]
+        : a[range][source] - b[range][source]
     ))
   },
-  range: (series, trilogies) => {
+  range: (series, source, trilogies) => {
     const average = camelCasify(trilogies ? 'trilogy' : '', 'average')
     const range = camelCasify(trilogies ? 'trilogy' : '', 'range')
 
     return [...series].sort((a, b) => (
-      b[range] !== a[range]
-        ? a[range] - b[range]
-        : b[average] - a[average]
+      b[range][source] !== a[range][source]
+        ? a[range][source] - b[range][source]
+        : b[average][source] - a[average][source]
     ))
   }
 }
