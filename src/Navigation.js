@@ -33,7 +33,7 @@ export default ({
         <h4>Source</h4>
         <Button selected={!source} onClick={() => setSource()} text="imdb" />
         <Button selected={source === 'tmdb'} onClick={() => setSource('tmdb')} text="tmdb" />
-        <label><input checked={!!overlay} type="checkbox" onChange={(e) => setOverlay(!!e.target.checked) && e.preventDefault()} /> overlay?</label>
+        <label class={cssStyles.checkboxLabel}><input checked={!!overlay} type="checkbox" onChange={(e) => setOverlay(!!e.target.checked) && e.preventDefault()} /> overlay?</label>
       </div>
       <div className={cssStyles.line}>
         <label className={cssStyles.search}>
