@@ -11,7 +11,8 @@ export default ({ updatedAt, affiliate }) => (
     </p>
 
     <p>
-      Made by <a rel="noopener noreferrer" target="_blank" href="https://cedmax.com">cedmax</a> in order to win an argument.<br />Ratings from IMDB, last fetched
+      Made by <a rel="noopener noreferrer" target="_blank" href="https://cedmax.com">cedmax</a> in order to win an argument.<br />
+      Ratings from <a rel="noopener noreferrer" href="https://www.imdb.com"><img width="50" src="/imdb.png" alt="IMDb" /></a> and <a rel="noopener noreferrer" href="https://www.themoviedb.org"><img width="75" src="/tmdb.png" alt="The Movie Database" /></a>, last fetched
       <time dateTime={formatIso(updatedAt)}> {formatReadable(updatedAt)}</time>.
     </p>
 
