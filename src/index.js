@@ -4,7 +4,6 @@ import {
   render,
   hydrate
 } from 'react-dom'
-import affiliate from './helpers/affiliate'
 import registerServiceWorker from './registerServiceWorker'
 import './index.css'
 
@@ -14,9 +13,9 @@ const data = JSON.parse(dataNode.innerHTML)
 const rootNode = document.getElementById('root')
 
 if (rootNode.hasChildNodes()) {
-  hydrate(<App series={data} affiliate={affiliate} updatedAt={updatedAt} />, rootNode)
+  hydrate(<App series={data} updatedAt={updatedAt} />, rootNode)
 } else {
-  render(<App series={data} affiliate={affiliate} updatedAt={updatedAt} />, rootNode)
+  render(<App series={data} updatedAt={updatedAt} />, rootNode)
 }
 
 registerServiceWorker()

@@ -133,12 +133,11 @@ class App extends Component {
               overlay={this.state.overlay}
               source={this.state.source || defaultSource}
               trilogy={!this.state.show}
-              affiliate={this.props.affiliate}
               key={serie.title}
               serie={serie} />
           ))}
         </main>
-        <Footer updatedAt={this.props.updatedAt} affiliate={this.props.affiliate} />
+        <Footer updatedAt={this.props.updatedAt} />
       </div>
     )
   }

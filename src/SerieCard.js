@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Graph from './Graph'
-import blankshield from 'blankshield'
 import cssStyles from './SerieCard.module.css'
 
 export default class SerieCard extends Component {
@@ -18,15 +17,6 @@ export default class SerieCard extends Component {
     this.setState({
       visible: num || this.props.serie.movies.length
     })
-  }
-
-  handleClick (movie) {
-    const {
-      affiliate
-    } = this.props
-
-    const url = `http://${affiliate.domain}/s/ref=nb_ss_d?tag=${affiliate.tag}&url=search-alias%3Ddvd&field-keywords=${movie.name} ${movie.year}`
-    blankshield.open(url)
   }
 
   render () {
@@ -83,7 +73,7 @@ export default class SerieCard extends Component {
           <h1>{serie.title}</h1>
           <small>{startYear} - {endYear}</small>
         </header>
-        <Graph overlay={overlay} source={source} label={label} onClick={this.handleClick.bind(this)} movies={serie.movies.slice(0, visible)} />
+        <Graph overlay={overlay} source={source} label={label} movies={serie.movies.slice(0, visible)} />
         <footer>
           <small>
             <abbr title="Averange rating">Avg.</abbr> {average}<br />

@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "blankshield": "^0.6.2",
     "custom-react-scripts": "0.2.1",
-    "locale2": "^2.1.4",
     "query-string": "^5.0.1",
     "react": "^16.2.0",
     "react-anchor-link-smooth-scroll": "^1.0.5",
