@@ -1233,10 +1233,6 @@ bindings@^1.2.1:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/bindings/-/bindings-1.3.0.tgz#b346f6ecf6a95f5a815c5839fc7cdb22502f1ed7"
 
-blankshield@^0.6.2:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/blankshield/-/blankshield-0.6.2.tgz#1b60f3fc3e3fae939a4d1596c37406dd0024ee3e"
-
 blessed@^0.1.81:
   version "0.1.81"
   resolved "https://registry.yarnpkg.com/blessed/-/blessed-0.1.81.tgz#f962d687ec2c369570ae71af843256e6d0ca1129"
@@ -4507,10 +4503,6 @@ loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.1.0:
     big.js "^3.1.3"
     emojis-list "^2.0.0"
     json5 "^0.5.0"
-
-locale2@^2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/locale2/-/locale2-2.1.4.tgz#9d55ec930cd9e3c957a99de14ac299814ad2a0b5"
 
 locate-path@^2.0.0:
   version "2.0.0"
