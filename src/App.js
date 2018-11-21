@@ -102,7 +102,8 @@ class App extends Component {
     const newState = { filter }
 
     if (history.pushState) history.pushState({}, '', this.buildUrl(newState))
-    this.debouncedSetState(newState)
+    this.setState(newState)
+    //this.debouncedSetState(newState)
   }
 
   setSource (source) {
