@@ -3,6 +3,9 @@ import Button from "./Button";
 import cssStyles from "./Navigation.module.css";
 
 export default ({
+  decades,
+  setDecade,
+  decade,
   filter,
   setFilter,
   sorting,
@@ -68,6 +71,22 @@ export default ({
             onChange={e => setOverlay(!!e.target.checked) && e.preventDefault()}
           />{" "}
           overlay?
+        </label>
+      </div>
+      <div className={cssStyles.line}>
+        <label className={cssStyles.search}>
+          <h4>Decade</h4>
+          <select
+            value={decade || ""}
+            onChange={e => setDecade(e.target.value || undefined)}
+          >
+            <option value="">All decades</option>
+            {decades.map(value => (
+              <option key={value} value={value}>
+                {value}s
+              </option>
+            ))}
+          </select>
         </label>
       </div>
       <div className={cssStyles.line}>

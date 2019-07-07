@@ -1,10 +1,24 @@
-import { camelCasify } from "./utils";
+const camelCasify = (prefix, method) =>
+  prefix ? prefix + method.charAt(0).toUpperCase() + method.slice(1) : method;
 
 export const filter = (series, search) =>
   series.filter(
     series => series.title.toLowerCase().indexOf(search.toLowerCase()) > -1
   );
 
+export const decade = (series, decade, trilogies) => {
+  const decadeNum = parseInt(decade, 10);
+  const decadeLimitLow = decadeNum + (decadeNum >= 20 ? 1900 : 2000);
+  const decadeLimitHigh = decadeLimitLow + 10;
+  return series.filter(
+    series =>
+      !!(trilogies ? series.movies.slice(0, 3) : series.movies).filter(
+        ({ imdbYear }) => {
+          return imdbYear >= decadeLimitLow && imdbYear < decadeLimitHigh;
+        }
+      ).length
+  );
+};
 export const sorting = {
   az: series =>
     [...series].sort((a, b) => {
