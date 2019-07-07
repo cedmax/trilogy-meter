@@ -1,44 +1,58 @@
-import React, { Component } from "react";
+import React, { memo } from "react";
 
-class DefaultTooltipContent extends Component {
-  renderContent() {
-    const { payload, itemStyle, itemSorter } = this.props;
+const defaultStyle = {
+  margin: 0,
+  padding: 10,
+  backgroundColor: "#fff",
+  border: "1px solid #ccc",
+  whiteSpace: "nowrap",
+};
 
-    const listStyle = { padding: 0, margin: 0 };
+const defaultItemStyle = {
+  display: "block",
+  paddingTop: 4,
+  paddingBottom: 4,
+};
 
-    const items = payload.sort(itemSorter).map((entry, i) => {
-      const finalItemStyle = {
-        display: "block",
-        paddingTop: 4,
-        paddingBottom: 4,
-        color: entry.color || "#000",
-        ...itemStyle,
-      };
+const Content = memo(({ payload, itemStyle, itemSorter }) => {
+  const listStyle = { padding: 0, margin: 0 };
 
-      return entry.value ? (
-        <li key={`tooltip-item-${i}`} style={finalItemStyle}>
-          {entry.name}:<span dangerouslySetInnerHTML={{ __html: "&nbsp;" }} />
-          {entry.value}
-          {entry.unit}
-        </li>
-      ) : null;
-    });
+  const items = payload.sort(itemSorter).map((entry, i) => {
+    return entry.value ? (
+      <li
+        key={`tooltip-item-${i}`}
+        style={{
+          ...defaultItemStyle,
+          ...itemStyle,
+          color: entry.color,
+        }}
+      >
+        {entry.name}:<span dangerouslySetInnerHTML={{ __html: "&nbsp;" }} />
+        {entry.value}
+        {entry.unit}
+      </li>
+    ) : null;
+  });
 
-    return (
-      <ul className="recharts-tooltip-item-list" style={listStyle}>
-        {items}
-      </ul>
-    );
-  }
+  return (
+    <ul className="recharts-tooltip-item-list" style={listStyle}>
+      {items}
+    </ul>
+  );
+});
 
-  render() {
-    const { labelStyle, label, labelFormatter, wrapperStyle } = this.props;
+const DefaultTooltipContent = memo(
+  ({
+    labelStyle,
+    label,
+    labelFormatter,
+    wrapperStyle,
+    payload,
+    itemStyle,
+    itemSorter,
+  }) => {
     const finalStyle = {
-      margin: 0,
-      padding: 10,
-      backgroundColor: "#fff",
-      border: "1px solid #ccc",
-      whiteSpace: "nowrap",
+      ...defaultStyle,
       ...wrapperStyle,
     };
 
@@ -57,10 +71,14 @@ class DefaultTooltipContent extends Component {
         <p className="recharts-tooltip-label" style={finalLabelStyle}>
           {finalLabel}
         </p>
-        {this.renderContent()}
+        <Content
+          payload={payload}
+          itemStyle={itemStyle}
+          itemSorter={itemSorter}
+        />
       </div>
     );
   }
-}
+);
 
 export default DefaultTooltipContent;
