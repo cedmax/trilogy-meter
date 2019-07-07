@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SerieCard from "./SerieCard";
 import Header from "./Header";
 import Footer from "./Footer";
+import FlipMove from "react-flip-move";
 import cssStyles from "./App.module.css";
 import { debounce } from "./helpers/utils";
 import queryString from "query-string";
@@ -117,15 +118,17 @@ class App extends Component {
       <div className={cssStyles.page}>
         <Header {...this.state} {...this.actions} />
         <main className={cssStyles.container}>
-          {filteredSeries.map(serie => (
-            <SerieCard
-              overlay={this.state.overlay}
-              source={this.state.source || defaultSource}
-              trilogy={!this.state.show}
-              key={serie.title}
-              serie={serie}
-            />
-          ))}
+          <FlipMove>
+            {filteredSeries.map(serie => (
+              <SerieCard
+                overlay={this.state.overlay}
+                source={this.state.source || defaultSource}
+                trilogy={!this.state.show}
+                key={serie.title}
+                serie={serie}
+              />
+            ))}
+          </FlipMove>
         </main>
         <Footer updatedAt={this.props.updatedAt} />
       </div>

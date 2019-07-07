@@ -4,7 +4,7 @@
     margin: auto;
 }
 
-.container {
+.container > div {
     display: flex;
     justify-content: space-between;
     margin: auto;
@@ -12,7 +12,7 @@
     flex-wrap: wrap
 }
 
-.container::after {
+.container > div::after {
     content: '';
     flex: 0 0 31%;
 }
