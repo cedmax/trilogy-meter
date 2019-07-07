@@ -1,4 +1,11 @@
-import React from 'react'
-import cssStyles from './Button.module.css'
+import React, { memo } from "react";
+import cssStyles from "./Button.module.css";
 
-export default ({onClick, text, selected}) => <button onClick={onClick} className={`${cssStyles.button} ${selected ? cssStyles.selected : ''}`}>{text}</button>
+export default memo(({ onClick, text, selected }) => (
+  <button
+    onClick={onClick}
+    className={`${cssStyles.button} ${selected ? cssStyles.selected : ""}`}
+  >
+    {text}
+  </button>
+));
