@@ -16,27 +16,26 @@ const fetchMovieData = async movie => {
   }
 }
 
-module.exports = () =>
-  async function () {
-    const data = require('./.tmp/data.json')
+module.exports = async () => {
+  const data = require('./.tmp/data.json')
 
-    const series = []
-    for (const [i, serie] of data.series.entries()) {
-      try {
-        console.log(
-          `fetching data for: ${serie.title} – ${i + 1}/${
-            data.series.length
-          } – ${serie.movies.length} movies`
-        )
-        const movies = await Promise.all(serie.movies.map(fetchMovieData))
-        series.push({
-          ...serie,
-          movies
-        })
-      } catch (e) {
-        console.log(e)
-      }
+  const series = []
+  for (const [i, serie] of data.series.entries()) {
+    try {
+      console.log(
+        `fetching data for: ${serie.title} – ${i + 1}/${data.series.length} – ${
+          serie.movies.length
+        } movies`
+      )
+      const movies = await Promise.all(serie.movies.map(fetchMovieData))
+      series.push({
+        ...serie,
+        movies
+      })
+    } catch (e) {
+      console.log(e)
     }
-
-    saveData({ series })
   }
+
+  saveData({ series })
+}
