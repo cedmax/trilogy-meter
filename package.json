@@ -29,6 +29,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/helper-define-map": "^7.15.4",
     "image-downloader": "^4.0.3",
     "sanitize-filename": "^1.6.3"
   }
