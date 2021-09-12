@@ -6,7 +6,7 @@ module.exports = async () => {
   for (const [i, serie] of data.series.entries()) {
     try {
       console.log(
-        `fetching data for: ${serie.title} – ${i + 1}/${data.series.length} – ${
+        `fetching images for: ${serie.title} – ${i + 1}/${data.series.length} – ${
           serie.movies.length
         } movies`
       )
