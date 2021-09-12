@@ -1,10 +1,10 @@
-const axios = require("axios");
-const saveData = require("./utils/saveData");
+const axios = require('axios')
+const saveData = require('./utils/saveData')
 
-(async function() {
+module.exports = async () => {
   const { data } = await axios.get(
-    "https://trilogies-56fa5.firebaseio.com/.json"
-  );
-  
+    'https://trilogies-56fa5.firebaseio.com/.json'
+  )
+
   saveData(data)
-})();
+}

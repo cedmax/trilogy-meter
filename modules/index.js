@@ -1,3 +1,3 @@
-require('./fetch-firebase-data')
-require('./fetch-rating')
-require('./fetch-images')
+require('./fetch-firebase-data')()
+require('./fetch-rating')()
+require('./fetch-images')()
