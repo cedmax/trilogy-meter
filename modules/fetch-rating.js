@@ -1,6 +1,7 @@
 const fetchImdb = require('./utils/fetch-imdb')
 const fetchTMDB = require('./utils/fetch-tmdb')
 const saveData = require('./utils/saveData')
+const fs = require('fs')
 
 const fetchMovieData = async movie => {
   const [imdbData, tmdbData] = await Promise.all([
@@ -17,7 +18,7 @@ const fetchMovieData = async movie => {
 }
 
 module.exports = async () => {
-  const data = require('./.tmp/data.json')
+  const data = JSON.parse(fs.readFileSync('./modules/.tmp/data.json'))
 
   const series = []
   for (const [i, serie] of data.series.entries()) {
