@@ -23,6 +23,7 @@ export default class SerieCard extends Component {
     const { serie, label, trilogy, source, overlay } = this.props;
 
     let toggleView;
+
     if (serie.movies.length > 3 && trilogy) {
       if (this.state.visible > 3) {
         toggleView = (
