@@ -8,6 +8,8 @@
 
 # production
 /build
+/public/images/*.*
+/modules/.tmp/*.*
 
 # misc
 .DS_Store
