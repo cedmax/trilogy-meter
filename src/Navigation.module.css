@@ -32,6 +32,11 @@
     }
 }
 
+.nav {
+    border-top: 6px solid #000;
+    padding-top: 10px;
+}
+
 .nav h4 {
     font-size: 80%;
     display: inline-block;    

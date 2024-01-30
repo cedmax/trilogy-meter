@@ -1,0 +1,14 @@
+.strip {
+    text-align: center;    
+    margin: 0 auto 1.25em;
+    background:rgb(60, 141, 199);
+    display: block;
+    color: white;
+    padding: 7px;
+    text-decoration: none;
+    margin-bottom: 2px
+}
+
+.strip strong {
+    text-decoration: underline;
+}
