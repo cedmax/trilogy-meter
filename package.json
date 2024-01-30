@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "0.21.1",
+    "caniuse-lite": "^1.0.30001581",
     "cheerio": "1.0.0-rc.10",
     "query-string": "6.8.1",
     "react": "17.0.2",
