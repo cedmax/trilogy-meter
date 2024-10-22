@@ -13,8 +13,8 @@ export const decade = (series, decade, trilogies) => {
   return series.filter(
     series =>
       !!(trilogies ? series.movies.slice(0, 3) : series.movies).filter(
-        ({ imdbYear }) => {
-          return imdbYear >= decadeLimitLow && imdbYear < decadeLimitHigh;
+        ({ year }) => {
+          return year >= decadeLimitLow && year < decadeLimitHigh;
         }
       ).length
   );
@@ -30,21 +30,21 @@ export const sorting = {
     [...series].sort((a, b) => b.movies[0].year - a.movies[0].year),
   rating: (series, source, trilogies) => {
     const average = camelCasify(trilogies ? "trilogy" : "", "average");
-    const range = camelCasify(trilogies ? "trilogy" : "", "range");
+    const delta = camelCasify(trilogies ? "trilogy" : "", "delta");
 
     return [...series].sort((a, b) =>
       b[average][source] !== a[average][source]
         ? b[average][source] - a[average][source]
-        : a[range][source] - b[range][source]
+        : a[delta][source] - b[delta][source]
     );
   },
-  range: (series, source, trilogies) => {
+  delta: (series, source, trilogies) => {
     const average = camelCasify(trilogies ? "trilogy" : "", "average");
-    const range = camelCasify(trilogies ? "trilogy" : "", "range");
+    const delta = camelCasify(trilogies ? "trilogy" : "", "delta");
 
     return [...series].sort((a, b) =>
-      b[range][source] !== a[range][source]
-        ? a[range][source] - b[range][source]
+      b[delta][source] !== a[delta][source]
+        ? a[delta][source] - b[delta][source]
         : b[average][source] - a[average][source]
     );
   },

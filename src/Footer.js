@@ -12,9 +12,9 @@ export default memo(({ updatedAt }) => (
       80s thinks
     </p>
 
-    <p>
+    <p className={cssStyles.credits}>
       Made by{" "}
-      <a rel="noopener noreferrer" target="_blank" href="https://cedmax.com">
+      <a rel="noopener noreferrer" target="_blank" href="https://cedmax.net">
         cedmax
       </a>{" "}
       in order to win an argument.

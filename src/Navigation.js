@@ -51,8 +51,8 @@ export default ({
           text="newest"
         />
         <Button
-          selected={sorting === "range"}
-          onClick={() => setSorting("range")}
+          selected={sorting === "delta"}
+          onClick={() => setSorting("delta")}
           text="consistency"
         />
       </div>

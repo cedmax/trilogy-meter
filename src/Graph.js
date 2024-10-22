@@ -10,26 +10,12 @@ import {
   Cell,
 } from "recharts";
 import TooltipComponent from "./TooltipComponent";
-import slugify from "slugify";
-import cssStyles from "./Graph.module.css";
-
-const formatImage = string =>
-  slugify(string.toLowerCase(), { remove: /[$*_+~.()'"!/\-:@]/g });
-
-const formatTooltip = label => (
-  <>
-    <img alt={label} src={`/images/${formatImage(label)}.jpg`} width="120" />
-    <small className={cssStyles.title}>{label}</small>
-    <br />
-  </>
-);
+import { getOtherSource, getMainColor, getOtherColor } from "./utils";
 
 export default memo(({ movies, onClick, source, overlay }) => {
   let counter = 1;
   const length = movies.length;
-  const sources = ["imdb", "tmdb"];
-  sources.splice(sources.indexOf(source), 1);
-  const otherSource = sources[0];
+  const otherSource = getOtherSource(source);
 
   movies = movies.map(movie => ({
     ...movie,
@@ -38,12 +24,7 @@ export default memo(({ movies, onClick, source, overlay }) => {
     votes: movie.votes[source],
   }));
 
-  const mainColor =
-    source === "imdb" ? "rgb(119, 176, 216)" : "rgb(216,119,176)";
-  const otherColor = (alpha = 1) =>
-    source === "imdb"
-      ? `rgba(216,119,176, ${alpha})`
-      : `rgba(119, 176, 216, ${alpha})`;
+  const mainColor = getMainColor(source);
 
   return (
     <ResponsiveContainer style={{ maxWidth: 300 }} width="90%" height={300}>
@@ -62,7 +43,6 @@ export default memo(({ movies, onClick, source, overlay }) => {
           content={<TooltipComponent />}
           itemStyle={{ padding: 0, margin: 0 }}
           active={true}
-          labelFormatter={formatTooltip}
         />
         <Bar
           unit=" ⭑"
@@ -77,14 +57,14 @@ export default memo(({ movies, onClick, source, overlay }) => {
           xAxisId={1}
           name={otherSource}
           dataKey="otherRating"
-          fill={otherColor()}
+          fill={getOtherColor(source)}
           onClick={onClick}
         >
           {movies.map((entry, index) => (
             <Cell
               key={`cell-${index}`}
-              fill={otherColor(".5")}
-              stroke={otherColor()}
+              fill={getOtherColor(source, ".5")}
+              stroke={getOtherColor(source)}
               strokeWidth={1}
             />
           ))}

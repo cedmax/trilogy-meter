@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Graph from "./Graph";
 import cssStyles from "./SerieCard.module.css";
+import { getOtherColor, getOtherSource } from "./utils";
 
 export default class SerieCard extends Component {
   constructor(props) {
@@ -42,32 +43,30 @@ export default class SerieCard extends Component {
 
     const visible = trilogy ? this.state.visible : serie.movies.length;
 
-    let average = serie.trilogyAverage[source];
-    if (visible > 3) {
+    const isAll = visible > 3;
+    let average = isAll ? serie.average[source] : serie.trilogyAverage[source];
+    let delta = isAll ? serie.delta[source] : serie.trilogyDelta[source];
+    if (overlay) {
+      const oSrc = getOtherSource(source);
+      let oAverage = isAll ? serie.average[oSrc] : serie.trilogyAverage[oSrc];
+      let oDelta = isAll ? serie.delta[oSrc] : serie.trilogyDelta[oSrc];
       average = (
-        <span>
-          <s>{serie.trilogyAverage[source]}</s> {serie.average[source]}
-        </span>
+        <Fragment>
+          {average}{" "}
+          <span style={{ color: getOtherColor(source) }}>{oAverage}</span>
+        </Fragment>
       );
-    }
-
-    let range = serie.trilogyRange[source];
-    if (visible > 3) {
-      range = (
-        <span>
-          <s>{serie.trilogyRange[source]}</s> {serie.range[source]}
-        </span>
+      delta = (
+        <Fragment>
+          {delta} <span style={{ color: getOtherColor(source) }}>{oDelta}</span>
+        </Fragment>
       );
     }
 
     const startYear = serie.movies[0].year;
     let endYear = serie.movies[2].year;
     if (visible > 3) {
-      endYear = (
-        <span>
-          <s>{endYear}</s> {serie.movies[serie.movies.length - 1].year}
-        </span>
-      );
+      endYear = serie.movies[serie.movies.length - 1].year;
     }
 
     return (
@@ -86,12 +85,12 @@ export default class SerieCard extends Component {
         />
         <footer>
           <small>
-            <abbr title="Averange rating">Avg.</abbr> {average}
+            <abbr title="Average rating">Average</abbr> {average}
             <br />
-            <abbr title="Range, difference between the highest and the lowest rating">
-              Rng.
+            <abbr title="Delta between the highest and the lowest rating">
+              Delta
             </abbr>{" "}
-            {range}
+            {delta}
           </small>
           {toggleView}
         </footer>

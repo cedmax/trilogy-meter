@@ -1,11 +1,23 @@
 .footer {
-    font-size: 90%;
-    margin-bottom: 50px;
-    line-height: 2
+  font-size: 90%;
+  margin-bottom: 50px;
+  line-height: 2;
 }
 
 .footer a {
-    color: gray
+  color: black;
+  font-weight: bold;
 }
 
-.footer img {vertical-align: middle}
+.footer img {
+  vertical-align: middle;
+}
+
+.footer time {
+  font-style: italic;
+}
+
+.credits {
+  margin-top: 3.2rem;
+  text-align: center;
+}

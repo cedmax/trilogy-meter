@@ -1,5 +1,6 @@
 .title {
-    max-width: 100px;
-    display: block;
-    white-space: initial!important
+  padding-top: 3px;
+  max-width: 140px;
+  display: block;
+  white-space: initial !important;
 }
