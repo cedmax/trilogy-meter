@@ -1,5 +1,5 @@
-;(async () => {
-  await require('./fetch-firebase-data')()
-  await require('./fetch-rating')()
-  await require('./fetch-images')()
-})()
+(async () => {
+  const seriesData = await require("./fetch-firebase-data")();
+  const series = await require("./fetch-data")(seriesData);
+  require("./saveData")(series);
+})();
