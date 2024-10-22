@@ -1,0 +1,10 @@
+{
+  "name": "scheduler",
+  "version": "1.0.0",
+  "main": "scheduler.js",
+  "license": "MIT",
+  "dependencies": {
+    "@netlify/functions": "^2.6.0",
+    "axios": "1.6.8"
+  }
+}
