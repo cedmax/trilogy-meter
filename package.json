@@ -17,7 +17,8 @@
     "slugify": "1.6.0"
   },
   "scripts": {
-    "postinstall": "node modules",
+    "postinstall": "cd functions/scheduler && yarn",
+    "prebuild": "node modules",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
