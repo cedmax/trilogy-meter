@@ -1,5 +1,5 @@
 (async () => {
-  const seriesData = await require("./fetch-firebase-data")();
+  const seriesData = require("./data/trilogies.json").series;
   const series = await require("./fetch-data")(seriesData);
   require("./saveData")(series);
 })();

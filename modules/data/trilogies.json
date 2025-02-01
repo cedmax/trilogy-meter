@@ -1,0 +1,403 @@
+{
+  "series": [
+    {
+      "movies": [
+        "tt0076759",
+        "tt0080684",
+        "tt0086190",
+        "tt0120915",
+        "tt0121765",
+        "tt0121766",
+        "tt2488496",
+        "tt2527336",
+        "tt2527338"
+      ],
+      "title": "Star Wars"
+    },
+    {
+      "movies": [
+        "tt0082971",
+        "tt0087469",
+        "tt0097576",
+        "tt0367882",
+        "tt1462764"
+      ],
+      "title": "Indiana Jones"
+    },
+    {
+      "movies": ["tt0133093", "tt0234215", "tt0242653", "tt10838180"],
+      "title": "The Matrix"
+    },
+    {
+      "movies": ["tt0114709", "tt0120363", "tt0435761", "tt1979376"],
+      "title": "Toy Story"
+    },
+    {
+      "movies": [
+        "tt0078346",
+        "tt0081573",
+        "tt0086393",
+        "tt0094074",
+        "tt0348150"
+      ],
+      "title": "Superman"
+    },
+    {
+      "movies": [
+        "tt0107290",
+        "tt0119567",
+        "tt0163025",
+        "tt0369610",
+        "tt4881806",
+        "tt8041270"
+      ],
+      "title": "Jurassic Park"
+    },
+    {
+      "movies": [
+        "tt0120903",
+        "tt0290334",
+        "tt0376994",
+        "tt0458525",
+        "tt1270798",
+        "tt1430132",
+        "tt1877832",
+        "tt1431045",
+        "tt3385516",
+        "tt3315342",
+        "tt5463162",
+        "tt6565702",
+        "tt4682266",
+        "tt6263850"
+      ],
+      "title": "X-Men"
+    },
+    {
+      "movies": ["tt0145487", "tt0316654", "tt0413300"],
+      "title": "Spider-Man"
+    },
+    {
+      "movies": ["tt0120737", "tt0167261", "tt0167260"],
+      "title": "Lord of the Rings"
+    },
+    {
+      "movies": [
+        "tt0079501",
+        "tt0082694",
+        "tt0089530",
+        "tt1392190",
+        "tt12037194"
+      ],
+      "title": "Mad Max"
+    },
+    {
+      "movies": ["tt0073195", "tt0077766", "tt0085750", "tt0093300"],
+      "title": "Jaws"
+    },
+    {
+      "movies": ["tt0088763", "tt0096874", "tt0099088"],
+      "title": "Back to the Future"
+    },
+    {
+      "movies": [
+        "tt0095016",
+        "tt0099423",
+        "tt0112864",
+        "tt0337978",
+        "tt1606378"
+      ],
+      "title": "Die Hard"
+    },
+    { "movies": ["tt0120611", "tt0187738", "tt0359013"], "title": "Blade" },
+    {
+      "movies": [
+        "tt0063442",
+        "tt0065462",
+        "tt0067065",
+        "tt0068408",
+        "tt0069768",
+        "tt0133152",
+        "tt1318514",
+        "tt2103281",
+        "tt3450958"
+      ],
+      "title": "Planet of The Apes"
+    },
+    { "movies": ["tt0068646", "tt0071562", "tt0099674"], "title": "Godfather" },
+    {
+      "movies": [
+        "tt0075148",
+        "tt0079817",
+        "tt0084602",
+        "tt0089927",
+        "tt0100507",
+        "tt0479143"
+      ],
+      "title": "Rocky"
+    },
+    {
+      "movies": [
+        "tt0088247",
+        "tt0103064",
+        "tt0181852",
+        "tt0438488",
+        "tt1340138",
+        "tt6450804"
+      ],
+      "title": "Terminator"
+    },
+    {
+      "movies": [
+        "tt0083944",
+        "tt0089880",
+        "tt0095956",
+        "tt0462499",
+        "tt1206885"
+      ],
+      "title": "Rambo"
+    },
+    {
+      "movies": ["tt0372784", "tt0468569", "tt1345836"],
+      "title": "Batman (Dark Knight)"
+    },
+    {
+      "movies": [
+        "tt0078748",
+        "tt0090605",
+        "tt0103644",
+        "tt0118583",
+        "tt1446714",
+        "tt2316204",
+        "tt18412256"
+      ],
+      "title": "Alien"
+    },
+    {
+      "movies": ["tt0115751", "tt0154421", "tt0168629"],
+      "title": "Lars von Trier's The Golden Heart"
+    },
+    {
+      "movies": ["tt0083907", "tt0092991", "tt0106308", "tt1288558"],
+      "title": "Evil Dead"
+    },
+    {
+      "movies": ["tt0119654", "tt0120912", "tt1409024", "tt2283336"],
+      "title": "Men in Black"
+    },
+    {
+      "movies": ["tt0477347", "tt1078912", "tt2692250"],
+      "title": "Night at the Museum"
+    },
+    {
+      "movies": ["tt0118655", "tt0145660", "tt0295178"],
+      "title": "Austin Powers series"
+    },
+    {
+      "movies": ["tt0086960", "tt0092644", "tt0109254"],
+      "title": "Beverly Hills Cop"
+    },
+    {
+      "movies": ["tt0243155", "tt0317198", "tt1473832"],
+      "title": "Bridget Jones"
+    },
+    { "movies": ["tt0317219", "tt1216475", "tt3606752"], "title": "Cars" },
+    {
+      "movies": ["tt0185937", "tt0229260", "tt1540011"],
+      "title": "Blair Witch"
+    },
+    {
+      "movies": ["tt0108394", "tt0111507", "tt0111495"],
+      "title": "Three Colors"
+    },
+    {
+      "movies": ["tt0093409", "tt0097733", "tt0104714", "tt0122151"],
+      "title": "Lethal Weapon"
+    },
+    {
+      "movies": ["tt0441773", "tt1302011", "tt2267968", "tt21692408"],
+      "title": "Kung Fu Panda"
+    },
+    {
+      "movies": ["tt0084787", "tt0093777", "tt0113409"],
+      "title": "John Carpenter's Apocalypse Trilogy"
+    },
+    {
+      "movies": ["tt1323594", "tt1690953", "tt2293640", "tt3469046"],
+      "title": "Despicable Me"
+    },
+    {
+      "movies": ["tt0095705", "tt0102510", "tt0110622"],
+      "title": "The Naked Gun"
+    },
+    {
+      "movies": ["tt0058461", "tt0059578", "tt0060196"],
+      "title": "The Dollars Trilogy"
+    },
+    {
+      "movies": ["tt0064116", "tt0067140", "tt0087843"],
+      "title": "Once Upon a Time"
+    },
+    {
+      "movies": ["tt0112471", "tt0381681", "tt2209418"],
+      "title": "Before Trilogy"
+    },
+    {
+      "movies": [
+        "tt0117571",
+        "tt0120082",
+        "tt0134084",
+        "tt1262416",
+        "tt11245972",
+        "tt17663992"
+      ],
+      "title": "Scream"
+    },
+    {
+      "movies": [
+        "tt0087538",
+        "tt0091326",
+        "tt0097647",
+        "tt0110657",
+        "tt1155076"
+      ],
+      "title": "The Karate Kid"
+    },
+    {
+      "movies": [
+        "tt0117060",
+        "tt0120755",
+        "tt0317919",
+        "tt1229238",
+        "tt2381249",
+        "tt4912910",
+        "tt9603212"
+      ],
+      "title": "Mission: Impossible"
+    },
+    { "movies": ["tt0111282", "tt0942903", "tt0929629"], "title": "Stargate" },
+    {
+      "movies": ["tt0240772", "tt0349903", "tt0496806", "tt5164214"],
+      "title": "Ocean's"
+    },
+    {
+      "movies": ["tt1132620", "tt1216487", "tt1343097"],
+      "title": "Millennium series"
+    },
+    {
+      "movies": ["tt0310775", "tt0364569", "tt0451094"],
+      "title": "The Vengeance Trilogy"
+    },
+    {
+      "movies": ["tt0067429", "tt0068902", "tt0069818"],
+      "title": "The Milieu Trilogy"
+    },
+    {
+      "movies": ["tt0040369", "tt0041866", "tt0042895"],
+      "title": "John Ford's Cavalry"
+    },
+    {
+      "movies": ["tt0363771", "tt0499448", "tt0980970"],
+      "title": "The Chronicles of Narnia"
+    },
+    {
+      "movies": ["tt0134119", "tt0265651", "tt0219171"],
+      "title": "Tom Ripley"
+    },
+    { "movies": ["tt0450278", "tt0498353", "tt1255916"], "title": "Hostel" },
+    {
+      "movies": ["tt0134847", "tt0296572", "tt1411250"],
+      "title": "The Chronicles of Riddick"
+    },
+    { "movies": ["tt0093870", "tt0100502", "tt0107978"], "title": "RoboCop" },
+    {
+      "movies": ["tt0302674", "tt0363589", "tt0403217"],
+      "title": "Gus Van Sant's Death Trilogy"
+    },
+    {
+      "movies": ["tt0091763", "tt0096969", "tt0107096"],
+      "title": "Vietnam War"
+    },
+    {
+      "movies": ["tt0096895", "tt0103776", "tt0112462", "tt0118688"],
+      "title": "Batman"
+    },
+    {
+      "movies": ["tt1028528", "tt1077258", "tt0985694"],
+      "title": "Grindhouse"
+    },
+    {
+      "movies": ["tt0903624", "tt1170358", "tt2310332"],
+      "title": "The Hobbit"
+    },
+    {
+      "movies": [
+        "tt2724064",
+        "tt3062074",
+        "tt3899796",
+        "tt4831420",
+        "tt6298780",
+        "tt8031422"
+      ],
+      "title": "Sharknado"
+    },
+    {
+      "movies": [
+        "tt0066999",
+        "tt0070355",
+        "tt0074483",
+        "tt0086383",
+        "tt0094963"
+      ],
+      "title": "Dirty Harry"
+    },
+    {
+      "movies": ["tt0076786", "tt0080923", "tt0804507"],
+      "title": "The Three Mothers"
+    },
+    {
+      "movies": ["tt0274166", "tt1634122", "tt6921996"],
+      "title": "Johnny English"
+    },
+    {
+      "movies": ["tt1119646", "tt1411697", "tt1951261"],
+      "title": "The Hangover"
+    },
+    {
+      "movies": ["tt0101889", "tt0114746", "tt0120669"],
+      "title": "Trilogy of Americana"
+    },
+    {
+      "movies": [
+        "tt0109445",
+        "tt0113749",
+        "tt0118842",
+        "tt0120655",
+        "tt0261392",
+        "tt6521876"
+      ],
+      "title": "The Jersey Trilogy"
+    },
+    {
+      "movies": ["tt0102926", "tt0212985", "tt0289765"],
+      "title": "Hannibal Lecter"
+    },
+    {
+      "movies": ["tt0063350", "tt0363547", "tt0088993"],
+      "title": "Trilogy of the Dead"
+    },
+    {
+      "movies": ["tt0104868", "tt0109520", "tt0116000"],
+      "title": "The Mighty Ducks"
+    },
+    {
+      "movies": [
+        "tt0325980",
+        "tt0383574",
+        "tt0449088",
+        "tt1298650",
+        "tt1790809"
+      ],
+      "title": "Pirates of the Caribbean"
+    }
+  ]
+}
