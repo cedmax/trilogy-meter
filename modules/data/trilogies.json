@@ -202,10 +202,6 @@
     },
     { "movies": ["tt0317219", "tt1216475", "tt3606752"], "title": "Cars" },
     {
-      "movies": ["tt0185937", "tt0229260", "tt1540011"],
-      "title": "Blair Witch"
-    },
-    {
       "movies": ["tt0108394", "tt0111507", "tt0111495"],
       "title": "Three Colors"
     },
@@ -282,10 +278,6 @@
     },
     { "movies": ["tt0111282", "tt0942903", "tt0929629"], "title": "Stargate" },
     {
-      "movies": ["tt0240772", "tt0349903", "tt0496806", "tt5164214"],
-      "title": "Ocean's"
-    },
-    {
       "movies": ["tt1132620", "tt1216487", "tt1343097"],
       "title": "Millennium series"
     },
@@ -334,17 +326,6 @@
     {
       "movies": ["tt0903624", "tt1170358", "tt2310332"],
       "title": "The Hobbit"
-    },
-    {
-      "movies": [
-        "tt2724064",
-        "tt3062074",
-        "tt3899796",
-        "tt4831420",
-        "tt6298780",
-        "tt8031422"
-      ],
-      "title": "Sharknado"
     },
     {
       "movies": [
