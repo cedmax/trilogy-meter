@@ -398,6 +398,18 @@
         "tt1790809"
       ],
       "title": "Pirates of the Caribbean"
+    },
+    {
+      "movies": ["tt0116922", "tt0166924", "tt0460829"],
+      "title": "Los Angeles"
+    },
+    {
+      "movies": ["tt0365748", "tt0425112", "tt1213663"],
+      "title": "Three Flavours Cornetto"
+    },
+    {
+      "movies": ["tt0047528", "tt0047876", "tt0050783"],
+      "title": "Loneliness"
     }
   ]
 }
