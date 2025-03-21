@@ -222,7 +222,13 @@
       "title": "John Carpenter's Apocalypse Trilogy"
     },
     {
-      "movies": ["tt1323594", "tt1690953", "tt2293640", "tt3469046"],
+      "movies": [
+        "tt1323594",
+        "tt1690953",
+        "tt2293640",
+        "tt3469046",
+        "tt7510222"
+      ],
       "title": "Despicable Me"
     },
     {
